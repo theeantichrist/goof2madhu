@@ -1,0 +1,144 @@
+/* Basis Stijl */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #050505;
+    color: #e0e0e0;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+}
+
+/* Overlay / Enter screen */
+#affirmation-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: crosshair;
+    transition: opacity 0.8s ease;
+}
+
+.overlay-content { text-align: center; }
+
+#affirm-img {
+    max-width: 280px;
+    filter: grayscale(100%) contrast(150%) brightness(0.6);
+    border: 2px solid #111;
+    transition: 0.5s;
+    animation: pulse 2.5s infinite;
+}
+
+#affirm-img:hover {
+    filter: grayscale(0%) contrast(200%) brightness(1);
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.4);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.02); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+
+/* Main Site Content */
+.content-wrapper {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.vignette {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    box-shadow: inset 0 0 250px rgba(0,0,0,1);
+    pointer-events: none;
+}
+
+/* Glitch Tekst */
+.glitch {
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: white;
+    position: relative;
+    animation: glitch-anim 0.8s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { text-shadow: 4px 0 #ff003c, -4px 0 #00f2ea; transform: translate(1px, 1px); }
+    50% { text-shadow: -4px 0 #ff003c, 4px 0 #00f2ea; transform: translate(-1px, -1px); }
+    100% { text-shadow: 2px 2px #ff003c, -2px -2px #00f2ea; }
+}
+
+.subtitle {
+    letter-spacing: 10px;
+    font-size: 1rem;
+    opacity: 0.4;
+    margin-top: -5px;
+}
+
+/* Status Box */
+.status-box {
+    margin-top: 40px;
+    border: 1px solid #222;
+    padding: 25px;
+    background: rgba(10, 10, 10, 0.9);
+    text-align: left;
+}
+
+.blink { animation: blinker 1.5s infinite; }
+.blink-red { color: #ff0000; animation: blinker 0.5s infinite; }
+
+@keyframes blinker { 50% { opacity: 0; } }
+
+.warning-text {
+    margin-top: 30px;
+    font-size: 0.7rem;
+    color: #444;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+/* De TikTok Link */
+.dominator-link {
+    margin-top: 40px;
+    color: #ff003c;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+    border: 1px solid #ff003c;
+    padding: 12px 24px;
+    transition: 0.4s;
+    animation: link-pulse 2s infinite;
+}
+
+.dominator-link:hover {
+    background: #ff003c;
+    color: black;
+    box-shadow: 0 0 40px #ff003c;
+    transform: skewX(-5deg) scale(1.1);
+}
+
+@keyframes link-pulse {
+    0% { opacity: 0.8; } 50% { opacity: 1; } 100% { opacity: 0.8; }
+}
+
+.cta-button {
+    margin-top: 20px;
+    background: transparent;
+    color: #333;
+    border: 1px solid #222;
+    padding: 10px;
+    cursor: not-allowed;
+}
